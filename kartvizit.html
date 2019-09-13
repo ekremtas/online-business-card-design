@@ -1,0 +1,472 @@
+<!DOCTYPE HTML>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TechnoRob</title>
+
+
+    <!-- YENİLER VAR HEPSİNİ EKLEYEBİLİRSİNİZ -->
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/interactjs@1.3.4/dist/interact.min.js"></script>
+    <!-- or -->
+    <script src="https://unpkg.com/interactjs@1.3.4/dist/interact.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script type="text/javascript" src="qr/jquery.min.js"></script>
+    <script type="text/javascript" src="qr/qrcode.js"></script>
+    <link rel="stylesheet" href="denemestildosyası.css" >
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+
+    <link rel="stylesheet" href="imgtodivcss.css" >
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script src="js/docjs/html2canvas.js"></script>
+    <script src="js/docjs/base64.js"></script>
+    <script src="js/docjs/canvas2image.js"></script>
+
+
+    <link rel="stylesheet" href="popup.css">
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Alex+Brush|Amatic+SC|Amiri:400,400i,700,700i|Bad+Script|Bungee+Inline|Cabin+Sketch:400,700|Cairo:300,400,700|Caveat+Brush|Cookie|Dosis:300,400,500,700|Faster+One|Fredericka+the+Great|Gochi+Hand|Great+Vibes|Gruppo|Indie+Flower|Just+Another+Hand|Kalam:300,400,700|Kaushan+Script|Lato:300,300i,400,400i,700,700i|Lobster|Lobster+Two:400,400i,700,700i|Monoton|Montserrat:300,300i,400,400i,500,500i,700,700i|Mr+Dafoe|Mukta:300,400,500,700|Niconne|Noto+Sans+SC:300,400,500,700|Nova+Mono|Open+Sans+Condensed:300,300i,700|Open+Sans:300,300i,400,400i,700,700i|Oswald:300,400,700|Oxygen:300,400,700|Pacifico|Parisienne|Patrick+Hand|Poiret+One|Pompiere|Quicksand:300,400,500,700|Raleway+Dots|Raleway:300,300i,400,400i,500,500i,700,700i|Rancho|Righteous|Roboto:300,300i,400,400i,500,500i,700,700i|Sacramento|Shadows+Into+Light+Two|Source+Sans+Pro:300,300i,400,400i,700,700i|Tajawal:300,400,500,700|Ubuntu:300,300i,400,400i,500,500i,700,700i|VT323|ZCOOL+KuaiLe&amp;subset=arabic,chinese-simplified,greek,japanese" rel="stylesheet">
+
+    <!-- YENİLER VAR HEPSİNİ EKLEYEBİLİRSİNİZ -->
+
+</head>
+<body>
+<div class="page-nav">
+    <div class="collapses navbari-collapse" style="
+     width: 100%;
+     height:60px;
+   /* background-color: #f3f3f3;dee2e5;*/
+   /*position: fixed;*/
+    border-bottom: 10px solid #fff100;
+    padding-left: 0px;
+    text-align: center;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    /* padding-left: 0; */
+    margin-bottom: 0;
+    list-style: none;
+    z-index: 10000;
+    top: 0px;" id="navbari-primary">
+        <ul class="navi navbar-navi" style=" display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    /* padding-left: 0; */
+    margin-bottom: 0;
+    list-style: none;
+    padding-left: 28%;">
+            <li style="margin: 15px;" class="active"><a class="text-style-a" href="#">ANASAYFA</a></li>
+            <li style="margin: 15px;"><a class="text-style-a" href="#">HAKKIMIZDA</a></li>
+            <li style="margin: 15px;"><a  href="#"><img id="logo-navbar-middle" src="image/atolyegrafik.png" style="width: 130px; margin-top: -15px;" alt="Logo Thing main logo"></a></li>
+            <li style="margin: 15px;"><a class="text-style-a" href="#">ÜRÜNLERİMİZ</a></li>
+            <li style="margin: 15px;"><a class="text-style-a" href="#">İLETİŞİM</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+</div>
+<div id="page-type">
+    <div id="text-editor-general" style=" background-color: #f8f9fa24; box-shadow: -3px 4px 50px 20px #808080b3;">
+
+        <div id="text-editor-top">
+
+            <div id="text-editor-nav">
+
+
+                <!-- YENİ MENU -->
+
+                <div class="text-editor-nav-left">
+                    <a class="btn text-button" id="a" onclick="getirleftmenu(this.id)" ><span>Text Ekle</span></a>
+                    <a class="btn text-button" id="b" onclick="getirleftmenu(this.id)" ><span>Şekil Ekle</span></a>
+                    <a class="btn text-button" id="c" onclick="getirleftmenu(this.id)" ><span>Fazlası</span></a>
+                    <a class="btn text-button" id="d" onclick="" ><span>Resim Kütüphanem</span></a>
+                    <a class="btn text-button" id="e" onclick="getirleftmenu(this.id)" ><span>İconlar</span></a>
+                </div>
+
+                <!-- YENİ MENU BİTİMİ -->
+
+                <div class="text-editor-nav-right">
+                    <a class="btn text-button js-open-popup" data-target="custom-popup" id="btnSave"  onclick="customPopup(), deneme()" ><span>Ön İzleme</span></a>
+                </div>
+
+                <!--       <button class="btn text-button" id="c" onclick="getirleftmenu(this.id)" >Fazlası</button>-->
+            </div>
+        </div>
+
+        <div id="text-editor-panel">
+
+            <div id="text-editor-panel-left" style="">
+                <div id="menu-text">
+                    <p class="menu-baslik">Yazı Ekleme</p>
+                    <button class="menu-text-button" onclick="inputolustur()">Yeni Bir Alan Ekle</button>
+                    <div id="menu-text-textalan">
+                        <input type="text" class="text-left-menu" oninput="alayinigetir(this.title,this.value)" title="adisoyadi"content="adisoyadi" id="yeniadisoyadi" placeholder="Adı Soyadı" />
+                        <input type="text" class="text-left-menu" oninput="alayinigetir(this.title,this.value)" title="unvani"   content="unvani"    id="yeniunvani"    placeholder="Ünvanı"     />
+                        <input type="text" class="text-left-menu" oninput="alayinigetir(this.title,this.value)" title="mail"     content="mail"      id="yenimail"      placeholder="E-Mail"     />
+                        <input type="text" class="text-left-menu" oninput="alayinigetir(this.title,this.value)" title="adres"    content="adres"     id="yeniadres"     placeholder="Adres"      />
+                        <input type="text" class="text-left-menu" oninput="alayinigetir(this.title,this.value)" title="telefon"  content="telefon"   id="yenitelefon"   placeholder="Telefon"    />
+                    </div>
+                </div>
+                <div id="menu-img">
+                    <p class="menu-baslik">Şekil Ekle</p>
+                    <a class="menu-text-button" onclick="kareyap()"><i class="fas fa-square"></i></a>
+                    <a class="menu-text-button" onclick="circleyap()"><i class="fas fa-circle"></i></a>
+                    <a class="menu-text-button" onclick="staryap()"><i class="fas fa-star"></i></a>
+                    <a class="menu-text-button" onclick="arrowyap()"><i class="fas fa-location-arrow"></i></a>
+                    <a class="menu-text-button" onclick="denemedenemedeneme()" ><i class="fas fa-plus"></i></a>
+                    <!--     <div id="menu-left-sekil" style="border: 1px solid #000;padding: 10px;text-align: center;margin-top: 50px;">
+                             <input id="yukseklik-text" type="text" style="width:100%" placeholder="Yükseklik" /><br />
+                             <input id="uzunluk-text" type="text" style="width:100%" placeholder="Uzunluk" /><br />
+                         </div>-->
+                    <div id="menu-left-sekil" style="border: 1px solid #000;padding: 10px;text-align: center;margin-top: 50px;">
+                        <p class="text-icerik">Resim Ekleme:</p>
+                        <input id="upload" type="file" onchange="viewer()" style="width: 250px;">
+                        <!-- <input type="file"  id="i_file" value="" onchange="urlBul()" accept="image/*" /><br />-->
+                        <!--  <input id="imgekleme" type="file"  style="width:100%" accept="image/*" on /><br /> -->
+                        <p class="text-icerik">Arkaplan Değiştirme:</p>
+                        <br />
+                        <input id="colorekle" type="color"  style="width:100%" value="#000000" onchange="arkaplanrenk(this.value)" /><br />
+                    </div>
+                </div>
+                <!-- YENİ Icon Menu -->
+
+                <div id="menu-icon">
+                    <p class="menu-baslik">İconlar</p><br>
+                    Renk :
+                    <input id="iconcolordegis" type="color" /><br>
+                    Büyüklük:
+                    <input id="iconsize" type="text" oninput="iconSize(this.value)" placeholder="Büyüklük" /><br>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="star"><i class="fas fa-star"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="plus"><i class="fas fa-plus"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="wifi"><i class="fas fa-wifi"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="address-book"><i class="fas fa-address-book"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="comment"><i class="fas fa-comment"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="sms"><i class="fas fa-sms"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="heart"><i class="fas fa-heart"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="map-marker-alt"><i class="fas fa-map-marker-alt"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="camera"><i class="fas fa-camera"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="images"><i class="fas fa-images"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="user"><i class="fas fa-user"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="users"><i class="fas fa-users"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="envelope"><i class="fas fa-envelope"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="thumbs-down"><i class="fas fa-thumbs-down"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="thumbs-up"><i class="fas fa-thumbs-up"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="share-alt"><i class="fas fa-share-alt"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="hashtag"><i class="fas fa-hashtag"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="share"><i class="fas fa-share"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="quote-left"><i class="fas fa-quote-left"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="quote-right"><i class="fas fa-quote-right"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="eye"><i class="fas fa-eye"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="folder"><i class="fas fa-folder"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="bookmark"><i class="fas fa-bookmark"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="location-arrow"><i class="fas fa-location-arrow"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="arrow-right"><i class="fas fa-arrow-right"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="search-location"><i class="fas fa-search-location"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="map-marker"><i class="fas fa-map-marker"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="map"><i class="fas fa-map"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="globe"><i class="fas fa-globe"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="exclamation"><i class="fas fa-exclamation"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="square"><i class="fas fa-square"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="angle-right"><i class="fas fa-angle-right"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="check"><i class="fas fa-check"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="asterisk"><i class="fas fa-asterisk"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="circle"><i class="fas fa-circle"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="phone"><i class="fas fa-phone"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="cut"><i class="fas fa-cut"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="book"><i class="fas fa-book"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="coffee"><i class="fas fa-coffee"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="envelope"><i class="fas fa-envelope"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="folder"><i class="fas fa-folder"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="paperclip"><i class="fas fa-paperclip"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="pen"><i class="fas fa-pen"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="tag"><i class="fas fa-tag"></i></a>
+
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="tags"><i class="fas fa-tags"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="save"><i class="fas fa-save"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="paperclip"><i class="fas fa-paperclip"></i></a>
+                    <a class="menu-text-button" onclick="iconolustur(this.id)" id="chevron-circle-right"><i class="fas fa-chevron-circle-right"></i></a>
+
+                </div>
+
+                <!-- YENİ Icon Menu Bitimi -->
+
+                <div id="menu-fazlasi">
+                    <p class="menu-baslik">Daha Fazla Özellik</p>
+                    <a class="menu-text-button" onclick="alangoster()"><i class="fas fa-qrcode"></i></a>
+                    <div id="menu-left-qr" style="    border: 1px solid #000;padding: 10px;text-align: center;margin-top: 50px;">
+                        <div class="menu-text-resim" >
+                            <input id="text" class="input-text-stil" type="text" style="width:100%" placeholder="Link" /><br />
+                            <input id="qrnums" type="text" style="width:100%" placeholder="QR Boyutu" /><br />
+                            <button onclick="makeCode()" style="margin-top: 10px;">QR Kod Oluştur</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="text-editor-panel-right">
+                <div class="right-menu">
+                    <!-- YENİ YAZI MENU -->
+
+                    <div id="kaybol" >
+                        <div class="menuxls">
+                            <button class="editor-button" onclick="changeFont('editor','bold'), kısımGuncelle()"  ><strong>B</strong> </button>
+                            <button class="editor-button" onclick="changeFont('editor','italic'), kısımGuncelle()"  ><em>I</em> </button>
+                            <button class="editor-button" onclick="changeFont('editor','underline'), kısımGuncelle()" ><u>U</u> </button>
+                            <input id="addNewColor"  class="jscolor {width:243, height:150, position:'right',borderColor:'#FFF', insetColor:'#FFF', backgroundColor:'#666', onFineChange:'update(this)'} textstil" value="000000" onchange="denemestil(), kısımGuncelle()"  />
+                       <!--
+                        <input id="" class="textstil" type="text" value="18" oninput="" onchange="kısımSınırla(this.value), kısımGuncelle() "  />
+                           -->
+                            <select id="fsize" class="textstil" onchange="changeFont('editor','stilSize');kısımSınırla(this.value), kısımGuncelle() "  >
+                                <option value="10"  >10</option>
+                                <option value="12"  >12</option>
+                                <option value="14"  >14</option>
+                                <option value="16"  >16</option>
+                                <option value="18"  >18</option>
+                                <option value="20"  >20</option>
+                                <option value="22"  >22</option>
+                                <option value="24"  >24</option>
+                                <option value="26"  >26</option>
+                                <option value="28"  >28</option>
+                                <option value="30"  >30</option>
+                                <option value="32"  >32</option>
+                                <option value="34"  >34</option>
+                                <option value="36"  >36</option>
+                                <option value="48"  >48</option>
+                                <option value="72"  >72</option>
+                            </select>
+                     <!--
+                            <button class="editor-button" onclick="changeFont('editor','adjustL'), kısımGuncelle()"  ><i class="fas fa-align-left"></i></button>
+                            <button class="editor-button" onclick="changeFont('editor','adjustC'), kısımGuncelle()"  ><i class="fas fa-align-center"></i></button>
+                            <button class="editor-button" onclick="changeFont('editor','adjustR'), kısımGuncelle()"  ><i class="fas fa-align-right"></i></button>
+                            -->
+                            <select id="fontFamily" class="fontedit" onchange="changeFont('editor','fontFamily'), kısımGuncelle()"  >
+                                <option value="1"  >Times New Roman</option>
+                                <option value="2"  >Arial</option>
+                                <option value="3"  >Amiri</option>
+                                <option value="4"  >Oxygen</option>
+                                <option value="5"  >Cookie</option>
+                                <option value="6"  >Roboto</option>
+                                <option value="7"  >Cairo</option>
+                                <option value="8"  >Lato</option>
+                                <option value="9"  >Oswald</option>
+                                <option value="10" >Raleway</option>
+                                <option value="11" >Ubuntu</option>
+                                <option value="12" >Open Sans Condensed</option>
+                                <option value="13" >Indie Flower</option>
+                                <option value="14" >Pacifico</option>
+                                <option value="15" >Amatic SC</option>
+                                <option value="16" >Kaushan Script</option>
+                                <option value="17" >Great Vibes</option>
+                                <option value="18" >Patrick Hand</option>
+                                <option value="19" >Kalam</option>
+                                <option value="20" >Sacramento</option>
+                                <option value="21" >Gochi Hand</option>
+                                <option value="22" >Bad Script</option>
+                                <option value="23" >Parisienne</option>
+                                <option value="24" >Shadows Into Light Two</option>
+                                <option value="25" >Caveat Brush</option>
+                                <option value="26" >Rancho</option>
+                                <option value="27" >Alex Brush</option>
+                                <option value="28" >Mr Dafoe</option>
+                                <option value="29" >Niconne</option>
+                                <option value="30" >Just Another Hand</option>
+                                <option value="31" >VT323</option>
+                                <option value="32" >Nova Mono</option>
+                                <option value="33" >Lobster</option>
+                                <option value="34" >Righteous</option>
+                                <option value="35" >Lobster Two</option>
+                                <option value="36" >Poiret One</option>
+                                <option value="37" >Monoton</option>
+                                <option value="38" >Fredericka the Great</option>
+                                <option value="39" >Cabin Sketch</option>
+                                <option value="40" >ZCOOL KuaiLe</option>
+                                <option value="41" >Gruppo</option>
+                                <option value="42" >Bungee Inline</option>
+                                <option value="43" >Raleway Dots</option>
+                                <option value="44" >Faster One</option>
+                                <option value="45" >Pompiere</option>
+                                <option value="46" >Mukta</option>
+                                <option value="47" >Quicksand</option>
+                                <option value="48" >Dosis</option>
+                                <option value="49" >Open Sans</option>
+                                <option value="50" >Montserrat</option>
+                                <option value="51" >Source Sans Pro</option>
+                                <option value="52" >Tajawal</option>
+                                <option value="53" >Noto Sans SC</option>
+                            </select><br>
+
+                            <button class="editor-button btnedit" onclick="getirgotur(1)"      > Öne Getir </button>
+                            <button class="editor-button btnedit" onclick="getirgotur(2)"   > Arkaya Götür </button>
+                            <button class="editor-button btnedit" onclick="getirgotur(3)"    > En öne Getir </button>
+                            <button class="editor-button btnedit" onclick="getirgotur(4)"> En Arkaya Gönder </button>
+
+                        </div>
+                        <div id='edit'  >
+                            <input id="editor" type="text" oninput="kısımGuncelle()"   />
+                            <button class="editor-button btnedit" onclick="kısımSil()"  > Sil </button>
+                            <button class="editor-button btnedit" onclick="goBack()"> Geri Al </button>
+                            <button class="editor-button btnedit" onclick="goForward()"> İleri Al </button>
+                        </div>
+                    </div>
+
+                    <!-- YENİ YAZI MENU Bitti -->
+
+                    <!-- ŞEKİL MENU -->
+                    <div id="sekiledit" >
+                        <div class="sekildegistir"  >
+                            <input id="sekilcolordegis" type="color"  onchange="sekilBack()" />
+                            <input id="sekilrenkdegis" type="color"  onchange="sekilrenkdegistir()" />
+                            <input id="sekilwidth" type="text" oninput="sekilwidht(this.value)" placeholder="genişlik" />
+                            <input id="sekilheight" type="text" oninput="sekilheight(this.value)" placeholder="uzunluk" />
+                            <br>
+                            <button class="editor-button" onclick="onegetir()"      > Öne Getir </button>
+                            <button class="editor-button" onclick="arkayagotur()"   > Arkaya Götür </button>
+                            <button class="editor-button" onclick="enönegetir()"    > En öne Getir </button>
+                            <button class="editor-button" onclick="enarkayagonder()"> En Arkaya Gönder </button>
+                            <br>
+                            Köşeler: <input type="range" id="rad-control" onchange="sekilrad(this.value)" value="0" min="0" max="50">
+                            <input type="text" id="radsekil" onchange="sekilrad(this.value)" style="width: 60px;">
+                            Döndürme:<input type="range" id="deg-control" onchange="sekildeg(this.value)" value="0" min="0" max="360">
+                            <input type="text" id="degsekil" onchange="sekildeg(this.value)" style="width: 100px;">
+
+                            <button class="editor-button btnedit" onclick="sekilSil()"> Sil </button>
+
+
+                        </div>
+                    </div>
+
+                    <!-- YENİ Sekil Icon MENU -->
+
+                    <div id="sekilICON" style="display: none;">
+                        <div class="sekildegistir"  >
+                            Renk :
+                            <input id="iconcolordegis" type="color"  onchange="iconColor()" />
+                            Büyüklük:
+                            <input id="iconsize" type="text" oninput="iconSize(this.value)" placeholder="genişlik" />
+                            Döndürme:<input type="range" id="icon-deg-control" onchange="sekildeg(this.value)" value="0" min="0" max="360">
+                            <input type="text" id="degicon" onchange="iconDeg(this.value)" style="width: 100px;">
+
+                            <button class="editor-button btnedit" onclick="sekilSil()"> Sil </button>
+                        </div>
+                    </div>
+
+
+                    <!-- YENİ Sekil Icon MENU Bitimi -->
+
+                </div>
+
+
+                <div id="anakısım-body"  style="overflow:hidden;background-color: #FEF009;">
+                    <div id="anakısım" class="resize-container" style="background-color: #FEF009;">
+                        <div id="adisoyadi" title="adisoyadi"  onmouseup="secilenidgetir(this.id), gizlekaybol()" oninput="secilenyazdir(this.id,this.innerHTML)" class="resize-drag" style=" width:fit-content; height:fit-content; font-size: 34px; left:0; top:0;"     >Adı Soyadı</div>
+                        <div id="telefon"   title="telefon"    onmouseup="secilenidgetir(this.id), gizlekaybol()" oninput="secilenyazdir(this.id,this.innerHTML)" class="resize-drag" style=" width:fit-content; height:fit-content; font-size: 15px; left:0; top:115px;" >Telefon</div>
+                        <div id="adres"     title="adres"      onmouseup="secilenidgetir(this.id), gizlekaybol()" oninput="secilenyazdir(this.id,this.innerHTML)" class="resize-drag" style=" width:fit-content; height:fit-content; font-size: 15px; left:0; top:222px;" >Adres</div>
+                        <div id="unvani"    title="unvani"     onmouseup="secilenidgetir(this.id), gizlekaybol()" oninput="secilenyazdir(this.id,this.innerHTML)" class="resize-drag" style=" width:fit-content; height:fit-content; font-size: 15px; left:0; top:62px; " >Ünvanı</div>
+                        <div id="mail"      title="mail"       onmouseup="secilenidgetir(this.id), gizlekaybol()" oninput="secilenyazdir(this.id,this.innerHTML)" class="resize-drag" style=" width:fit-content; height:fit-content; font-size: 15px; left:0; top:167px;" >Mail</div>
+                        <!--  <img id="img" class="sekil" onclick="sekildegistir(this.id)" src="" style="width: 100px; position: absolute; height: 100px; z-index: 100; transform: translate(0px, 0px); border: 3px solid rgb(255, 202, 40);" alt="">
+                         -->
+                        <!--   <canvas id="cvs" class="resize-drag" width="100" height="100">
+                            </canvas>-->
+                        <div id="qrcode" class="qrcodes amantönrem" style="width: fit-content;height: fit-content;" ></div>
+                        <script type="text/javascript">
+
+                            var qrcode = new QRCode(document.getElementById("qrcode"), {
+                                width : 50,
+                                height : 50
+                            });
+                            function makeCode() {
+                                var elText = document.getElementById("text");s
+
+                                if (!elText.value) {
+                                    alert("Input a text");
+                                    elText.focus();
+                                    return;
+                                }
+
+                                qrcode.makeCode(elText.value);
+                            }
+
+                        </script>
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+
+        <div id="text-editor-bottom">
+
+
+        </div>
+    </div>
+
+</div>
+<div id="text-editor-foother" style="width:100%; height:30px; border-top: 5px solid #fff100; background-color: #383838; bottom:0; position: fixed;">
+
+</div>
+
+
+
+<div class="wrapper">
+    <div class="custom-popup js-custom-popup" id="custom-popup" data-popup="custom-popup">
+        <div class="custom-popup__holder js-custom-popup-holder"><span class="custom-popup__close js-close-popup"></span>
+            <div class="header-popup"><h2>Örnek Kart Ön Yüz</h2></div>
+            <div class="deneme" id="bunedoktor" style="margin-top:20px;margin-bottom:20px;display: inline;width: 687px;height: 415px;background-attachment: inherit;background-size: cover;background-image: url(image/anan.png);position: absolute;">
+                <div id="img-out" style="position: initial;z-index: 0;"></div>
+            </div>
+            <div class="footer-popup" style="text-align: center;">
+                <br>
+                <button class="btn text-button" style="background-color: yellowgreen;" onclick="resimkaydet()"> İndir </button>
+                <button class="btn text-button" style="background-color: lightcoral;"> Gönder </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="javas.js"></script>
+
+
+
+<script src="jscolor.js"></script>
+
+<!--
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+<!--
+    <script type="text/javascript" src="denememis.js">
+-->
+</script>
+
+</body>
+</html>

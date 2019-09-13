@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!--Jquery js-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    
+    <!--Fabric js-->
+    <script src="fabric.min.js"></script>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.3/jspdf.min.js"></script>
+
+
+    <!--Bootstrap js-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+    <!--Revision js-->
+    <script src="revision.js"></script>
+
+    <!--File Save js-->
+    <script src="FileSaver.js"></script>
+
+    <!--Canvas ToBlob js-->
+    <script src="canvas-toBlob.js"></script>
+
+</head>
+<body >
+    <div class="container">
+
+        <div class="row" >
+                <div class="col-md-12 mb-3">
+                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                                <a class="navbar-brand" href="#">| TechnoRob |</a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                  <span class="navbar-toggler-icon"></span>
+                                </button>
+                              
+                                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                  <ul class="navbar-nav mr-auto">
+                                    <li class="nav-item active">
+                                            <a class="nav-link" onclick="_Front_Face()" href="#">Ön Yüz <span class="sr-only">(current)</span></a>
+                                        </li>
+                                    <li class="nav-item active">
+                                            <a class="nav-link" onclick="_Back_Face()" href="#">Arka Yüz <span class="sr-only">(current)</span></a>
+
+                                    </li>
+                                    <li class="nav-item dropdown active">
+                                      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Şekil Ekle
+                                      </a>
+                                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" onclick="_Rect_Create()" href="#">Kare Ekle</a>
+                                        <a class="dropdown-item" onclick="_Circle_Create()" href="#">Yuvarlak Ekle</a>
+                                        <a class="dropdown-item" onclick="_Triangle_Create()" href="#">Üçgen Ekle</a>
+
+                                        
+                                    </li>
+                                    <li class="nav-item active">
+                                            <a class="nav-link" onclick="_Text_Create()" href="#">Yazı Ekle <span class="sr-only">(current)</span></a>
+
+                                    </li>
+                                  </ul>
+                                  <form class="form-inline my-2 my-lg-0">
+                                    <button class="btn btn-outline-success my-2 my-sm-0" id="file_save" type="button">Kartvizit'i Kaydet</button>
+                                  </form>
+
+                                  <!--<form >
+                                    <input type="text" id="qrcode"><br>
+                                    <button class="btn btn-outline-success my-2 my-sm-0" id="_Create_QrCode" type="button">Qr Kodu Oluştur</button>
+                                  </form>-->
+
+                                </div>
+                              </nav>
+                </div>
+            <!--<div class="col-md-12">
+                    <div style="display: block; background: #effaff; padding: 10px 0px; margin-top: 0px">
+                            <div class="kapsul" style="display: block; width: 1110px; margin: 0 auto;">
+                    
+                                <div style="display: block; width: 60%; float: left">
+                                    <button id="btnShowFront" class="fbd-btn fbd-btn-red" title="Ön Yüz"><i class="fpd-icon fpd-icon-front"></i>Ön Yüz</button>
+                                    <button id="btnShowBack" class="fbd-btn fbd-btn-red active" title="Arka Yüz"><i class="fpd-icon fpd-icon-front"></i>Arka Yüz</button>
+                                    
+                                    <button id="btnReset" class="fbd-btn fbd-btn-white" title="Tasarımı ilk haline yükle."><i class="fpd-icon fpd-icon-sifirla"></i>&nbsp;</button>
+                                    <button id="btnSave" class="fbd-btn fbd-btn-white" title="Kaydet"><i class="fpd-icon fpd-icon-kaydet"></i>&nbsp;</button>
+                                    <button id="btnLoad" class="fbd-btn fbd-btn-white" title="Yükle"><i class="fpd-icon fpd-icon-yukle"></i>&nbsp;</button>
+                                    <button id="btnLayers" class="fbd-btn fbd-btn-white fpd-module" data-module="manage-layers" title="Katmanlar"><i class="fpd-icon fpd-icon-layer"></i>Katman</button>
+                                    
+                                    <button id="btnPreview" class="fbd-btn fbd-btn-black" title="Ön izleme">Ön izleme</button>
+                                </div>
+                    
+                                
+                                <div style="display: block; width: 40%; float: right; text-align: right">
+                                    <button id="btnAddText" class="fbd-btn fpd-btn-small" title="Metin Ekle"><i class="fpd-icon"></i>Metin Ekle</button>
+                                    <button id="btnAddImage" class="fbd-btn fpd-btn-small" title="Resim Ekle"><i class="fpd-icon fpd-icon-image"></i>Resim Ekle</button>
+                                    <button id="btnAddShape" class="fbd-btn fpd-btn-small" title="Şekil Ekle"><i class="fpd-icon fpd-icon-shape"></i>Şekil Ekle</button>
+                                    <button id="btnAddQr" class="fbd-btn fpd-btn-small" title="QR Kod Ekle"><i class="fpd-icon fpd-icon-qr"></i>QR Kod Ekle</button>
+                                </div>
+                                
+                            </div>
+                        </div>
+            </div>
+            -->
+            <div class="col-md-3">
+                 <!--   
+                <button type="button" class="btn btn-primary" onclick="_Rect_Create()" >Kare oluştur</button>
+                <button type="button" class="btn btn-primary" onclick="_Circle_Create()" >Daire oluştur</button>
+                <button type="button" class="btn btn-primary" onclick="_Text_Create()" >Text oluştur</button>
+                <input id="file_save" type="button" value="Kartviziti Kaydet">
+
+-->
+                
+                <input id="colordesigner" type="color" onchange="_Color_Change()"/>
+
+                <input id="Delete_item" type="button" value="Sil">
+
+
+
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Bring_Forward()" type="button">En Öne Getir</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Backwards()
+                " type="button">En arkaya Götür</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Bring_Forward_One_Layer()" type="button">1 Öne Getir</button>
+                <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Backwards_One_Layer()
+                " type="button">1 arkaya Götür</button>
+
+
+
+                <select id="fontFamily" class="fontedit" onchange="_Change_Font()"  >
+                        <option value="Times New Roman"  >Times New Roman</option>
+                        <option value="Arial Black"  >Arial Black</option>
+                        <option value="Comic Sans MS"  >Comic Sans MS</option>
+                        <option value="Impact"  >Impact</option>
+                        <option value="Lucida Sans Unicode"  >Lucida Sans Unicode</option>
+                        <option value="Tahoma"  >Tahoma</option>
+                        <option value="Trebuchet MS"  >Trebuchet MS</option>
+                        <option value="Verdana"  >Verdana</option>
+                        <option value="Cookie"  >Cookie</option>
+                        <option value="Roboto"  >Roboto</option>
+                        <option value="Cairo"  >Cairo</option>                        
+                    </select>
+                    <br>
+                    <hr/>
+                    <select id="fontSize" class="textstil" onchange="_Change_FontSize()"  >
+                            <option value="10"  >10</option>
+                            <option value="12"  >12</option>
+                            <option value="14"  >14</option>
+                            <option value="16"  >16</option>
+                            <option value="18"  >18</option>
+                            <option value="20"  >20</option>
+                            <option value="22"  >22</option>
+                            <option value="24"  >24</option>
+                            <option value="26"  >26</option>
+                            <option value="28"  >28</option>
+                            <option value="30"  >30</option>
+                            <option value="32"  >32</option>
+                            <option value="34"  >34</option>
+                            <option value="36"  >36</option>
+                            <option value="48"  >48</option>
+                            <option value="72"  >72</option>
+                            <option value="80"  >80</option>
+                            <option value="87"  >87</option>
+                            <option value="94"  >94</option>
+                            <option value="100"  >100</option>
+                    </select>
+                    <button class="editor-button" onclick="_Text_Bold()"  ><strong>B</strong> </button>
+                    <button class="editor-button" onclick="_Text_Italic()"  ><em>I</em> </button>
+                    <button class="editor-button" onclick="_Text_Underline()" ><u>U</u> </button>
+
+                    <input type="image" src="img_submit.gif" alt="Submit">
+
+            </div>
+            <div class="col-md-9">
+
+            <canvas id="c" onclick="asd()" height="550" width="850" ></canvas>
+
+            </div>
+        </div>
+    </div>
+
+
+<script>
+var canvas = new fabric.Canvas('c',
+{
+    
+    backgroundColor:"#f0fc0a"
+    
+}
+);
+
+// Etrafındaki çizgiler
+
+canvas.add(
+    new fabric.Rect({
+        transparentCorners: false,
+        cornerColor: 'red',
+        type:"back-rect",
+        left:25,
+        top:25,
+        width:800,
+        height:500,
+        fill:"transparent",
+        hasControls: false,
+        evented:false,
+	strokeWidth: 2,
+    stroke: "#880E4F"
+})
+);
+canvas.renderAll();
+
+var colordesignerlayer = document.getElementById("colordesigner");
+var fontfamilylayer = document.getElementById("fontFamily");
+var fontsizelayer = document.getElementById("fontSize");
+var id = 0;
+
+
+canvas.on('mouse:down', function(options) {
+
+    if(canvas.getActiveObject() != null)
+    {
+        //selected item color 
+    colordesignerlayer.value = canvas.getActiveObject().fill;
+    if(canvas.getActiveObject().type == "text")
+    {
+        let fontfam = canvas.getActiveObject().get("fontFamily");
+        fontfamilylayer.value = fontfam;
+        let fontsiz = canvas.getActiveObject().get("fontSize");
+        fontsizelayer.value = fontsiz;
+        canvas.renderAll();
+    }    
+
+    }
+    if(canvas.getActiveObject() == null)
+    {
+        //selected item color 
+    colordesignerlayer.value = canvas.get("backgroundColor");
+    }
+    //generateOption = canvas.getActiveObject();
+
+    //console.log(canvas._objects);
+
+    //console.log("bu");
+    //console.log(canvas.getActiveObject());
+    //console.log("bu");
+
+    
+
+    /*if(options.target!=null)    
+    {   
+
+        console.log(options);
+        if(options.target.type == "circle")
+        {
+        console.log("daire ");
+        rect = canvas.getActiveObject();
+
+
+
+
+        }
+        if(options.target.type == "rect")
+        {
+        console.log("kare");
+
+
+
+        rect = canvas.getActiveObject();
+        }
+    }*/
+});
+
+canvas.on('object:moving', function (e) {
+        var obj = e.target;
+         // if object is too big ignore
+        if(obj.currentHeight > obj.canvas.height || obj.currentWidth > obj.canvas.width){
+            return;
+        }        
+        obj.setCoords();        
+        // top-left  corner
+        if(obj.getBoundingRect().top < 0 || obj.getBoundingRect().left < 0){
+            obj.top = Math.max(obj.top, obj.top-obj.getBoundingRect().top);
+            obj.left = Math.max(obj.left, obj.left-obj.getBoundingRect().left);
+        }
+        // bot-right corner
+        if(obj.getBoundingRect().top+obj.getBoundingRect().height  > obj.canvas.height || obj.getBoundingRect().left+obj.getBoundingRect().width  > obj.canvas.width){
+            obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
+            obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
+        }
+});
+
+function _Rect_Create(){
+    
+    canvas.add(
+    new fabric.Rect({
+        id:id++,
+        transparentCorners: false,
+        cornerColor: 'red',
+        type:"rect",
+        left:50,
+        top:50,
+        fill:'#000000',
+        width:100,
+        height:100
+    
+    })
+);
+}
+//         önemli                console.log(canvas.getObjects());
+
+
+function _Circle_Create()
+{
+    canvas.add(
+    new fabric.Circle(
+        {   
+            id:id++,
+            transparentCorners: false,
+            cornerColor: 'red',
+            type:"circle",
+            left:50,
+            top:50,
+            radius: 50,
+            fill: '#000000',
+            }
+        )
+    );
+}
+function _Triangle_Create()
+{
+    canvas.add(
+    new fabric.Triangle({
+        id:id++,
+        transparentCorners: false,
+        cornerColor: 'red',
+        width: 100,
+        height: 100, 
+        left: 50, 
+        top: 50, 
+        fill: '#000000'
+        })
+    );
+}
+
+function _Text_Create()
+{
+    canvas.add(
+    new fabric.Textbox(
+        'Yazınız...'
+        ,
+    {
+        id:id++,
+        type:"text",
+        transparentCorners: false,
+        cornerColor: 'red',
+        width: 200,
+        height: 200,
+        top: 250,
+        left: 5,
+        fontSize: 34,
+        textAlign: 'center'
+    }
+    )
+);
+}
+
+function _Bring_Forward_One_Layer()
+{
+    canvas._objects.forEach(element => {
+        if(element.id == canvas.getActiveObject().id)
+        {
+            canvas.bringForward(canvas.getActiveObject());    
+            canvas.discardActiveObject();       
+            canvas.renderAll();
+        }     
+
+    });
+}
+function _Backwards_One_Layer()
+{
+    canvas._objects.forEach(element => {
+        if(element.id == canvas.getActiveObject().id)
+        {
+            canvas.sendBackwards(canvas.getActiveObject());           
+            canvas.discardActiveObject();
+            canvas.renderAll();
+        }     
+
+    });
+}
+function _Bring_Forward()
+{
+    canvas._objects.forEach(element => {
+        if(element.id == canvas.getActiveObject().id)
+        {
+            canvas.bringToFront(canvas.getActiveObject());           
+            canvas.discardActiveObject();
+            canvas.renderAll();
+        }     
+
+    });
+}
+function _Backwards()
+{
+    canvas._objects.forEach(element => {
+        if(element.id == canvas.getActiveObject().id)
+        {
+            canvas.sendToBack(canvas.getActiveObject());           
+            canvas.discardActiveObject();
+            canvas.renderAll();
+        }     
+
+    });
+}
+
+function _Color_Change(){  
+    if(canvas.getActiveObject()!=null)
+    {  
+    canvas.getActiveObject().set("fill",colordesignerlayer.value);
+    canvas.renderAll();
+    }
+    if(canvas.getActiveObject()==null)
+    {canvas.set("backgroundColor",colordesignerlayer.value);
+    canvas.renderAll();
+    }
+};
+
+function _Change_Font()
+{
+    if(canvas.getActiveObject().type=="text")
+    {  
+    canvas.getActiveObject().set("fontFamily",fontfamilylayer.value);
+    
+    canvas.renderAll();
+    }
+
+
+
+}
+
+function _Change_FontSize()
+{
+    if(canvas.getActiveObject().type=="text")
+    {  
+    canvas.getActiveObject().set("fontSize",fontsizelayer.value);
+    
+    canvas.renderAll();
+    }
+
+
+
+}
+function _Text_Bold()
+{
+    if(canvas.getActiveObject().type=="text")
+    {  
+        dtEditText('bold');
+
+    
+    canvas.renderAll();
+    }
+
+}
+function _Text_Italic()
+{
+    if(canvas.getActiveObject().type=="text")
+    {  
+        dtEditText('italic');
+    
+    canvas.renderAll();
+    }
+
+}
+function _Text_Underline()
+{
+    if(canvas.getActiveObject().type=="text")
+    {  
+        dtEditText('underline');    
+    canvas.renderAll();
+    }
+
+}
+
+
+// Functions
+function dtEditText(action) {
+    var a = action;
+    var o = canvas.getActiveObject();
+    var t;
+
+    // If object selected, what type?
+    if (o) {
+        t = o.get('type');
+    }
+
+    if (o && t === 'text') {
+        switch(a) {
+            case 'bold':				
+                var isBold = dtGetStyle(o, 'fontWeight') === 'bold';
+                dtSetStyle(o, 'fontWeight', isBold ? '' : 'bold');
+            break;
+
+            case 'italic':
+                var isItalic = dtGetStyle(o, 'fontStyle') === 'italic';
+                dtSetStyle(o, 'fontStyle', isItalic ? '' : 'italic');
+            break;
+
+            case 'underline':
+                var isUnderline = dtGetStyle(o, 'textDecoration') === 'underline';
+                dtSetStyle(o, 'textDecoration', isUnderline ? '' : 'underline');
+            break;
+            canvas.renderAll();
+        }
+    }
+}
+
+// Get the style
+function dtGetStyle(object, styleName) {
+    return object[styleName];
+}
+
+// Set the style
+function dtSetStyle(object, styleName, value) {
+    object[styleName] = value;
+    object.set({dirty: true});
+    canvas.renderAll();
+}    
+
+
+function _Add_Photo(){
+    
+    canvas.add(
+    new fabric.Image.fromURL('http://fabricjs.com/assets/pug_small.jpg', function(myImg) {
+    //i create an extra var for to change some image properties
+    var img1 = myImg.set({ left: 0, top: 0 ,width:150,height:150});
+    canvas.add(img1); 
+    })
+);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+$("#file_save").click(function(){
+    canvas.discardActiveObject();
+    canvas.renderAll();
+    
+    canvas._objects.forEach(element => {
+        if(element.type == "back-rect")
+        {
+            canvas.remove(element);
+            canvas.renderAll();
+        }     
+
+    });
+
+    $("#c").get(0).toBlob(function(blob){
+        if(canvas.getActiveObject()==null)
+        saveAs(blob,"MyImage.png");
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF();
+
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        pdf.save("download.pdf");
+
+        
+        
+    });
+});
+
+
+
+
+$("#Delete_item").click(
+    function(){
+        canvas.remove(canvas.getActiveObject());
+        canvas.renderAll();
+        /*
+        let a=0;
+        canvas._objects.forEach(element => {
+            if(element.id == generateOption.target.id) 
+           {
+                //console.log(a);
+                //console.log(element.id + " "+generateOption.target.id);
+                console.log("asagısı");
+                console.log(canvas.getActiveObject());
+                console.log("yukarısı");
+                //canvas._objects[a].hasBorders = false;
+                //canvas._objects[a].hasControls = false;
+
+                //canvas._objects.splice(a,1);
+
+                canvas.renderAll();
+                //generateOption = "deleted_item";
+
+                console.log(canvas);
+                //console.log(canvas._objects);
+                //canvas.renderAll();
+           }
+           a++;
+
+        });
+        */
+    });
+    var copy_front_canvas ;
+    var copy_back_canvas ;
+
+    function _Front_Face()
+    {
+        copy_front_canvas = canvas._objects;
+        console.log(canvas);
+
+        canvas._objects.forEach(element => {
+            canvas.remove(element);
+        });
+        console.log(canvas);
+
+        copy_back_canvas.ForEach(element => {
+            canvas.add(element);
+        });
+
+        copy_front_canvas = null;
+
+        console.log(canvas);
+        console.log(copy_front_canvas);
+        console.log(copy_back_canvas);
+
+    }
+    function _Back_Face()
+    {
+        copy_back_canvas = canvas._objects;
+        canvas._objects.forEach(element => {
+            canvas.remove(element);
+        });
+        copy_front_canvas.forEach(element => {
+        
+            canvas.add(o);
+        });
+        copy_back_canvas = null;
+
+        console.log(canvas);
+        console.log(copy_front_canvas);
+        console.log(copy_back_canvas);
+    }
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+    <!--Bootstrap css-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</body>
+</html>
