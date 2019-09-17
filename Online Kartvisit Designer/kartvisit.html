@@ -116,19 +116,28 @@
 -->
                 
                 <input id="colordesigner" type="color" onchange="_Color_Change()"/>
+                <br>
+                <hr/>
+                <input class="btn btn-danger" id="Delete_item" type="button" value="Sil">
 
-                <input id="Delete_item" type="button" value="Sil">
 
-
-
+                <br>
+                <hr/>
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Bring_Forward()" type="button">En Öne Getir</button>
+                <br>
+                <hr/>
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Backwards()
                 " type="button">En arkaya Götür</button>
+                <br>
+                <hr/>
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Bring_Forward_One_Layer()" type="button">1 Öne Getir</button>
+                <br>
+                <hr/>
                 <button class="btn btn-outline-success my-2 my-sm-0" onclick="_Backwards_One_Layer()
                 " type="button">1 arkaya Götür</button>
 
-
+                    <br>
+                    <hr/>
 
                 <select id="fontFamily" class="fontedit" onchange="_Change_Font()"  >
                         <option value="Times New Roman"  >Times New Roman</option>
@@ -167,11 +176,30 @@
                             <option value="94"  >94</option>
                             <option value="100"  >100</option>
                     </select>
+                    <br>
+                    <hr/>
                     <button class="editor-button" onclick="_Text_Bold()"  ><strong>B</strong> </button>
                     <button class="editor-button" onclick="_Text_Italic()"  ><em>I</em> </button>
                     <button class="editor-button" onclick="_Text_Underline()" ><u>U</u> </button>
+                    <br>
+                    <hr/>
+                    <h4 class="text-center">Resim Yükle</h4>
+                    <div class="btn mt-1">
+                        <input  type="file" id="ImageData" name="ImageData" required />
+                    </div>
+                    <br>
+                    <hr/>
+                    <h4 class="text-center">Arka Plan Resmini Yükle</h4>
+                    <div class="btn mt-1">
+                        <input  type="file" id="ImageBackGroundData" name="ImageData" required />
+                    </div>
+                    <button class="btn btn-danger" onclick="_Delete_Background_Image()">ArkaPlan Resmini Sil</button>
+                    <br>
+                    <hr/>
+                    <ul id="item-list">
+                        <li>Eklenenler</li>
 
-                    <input type="image" src="img_submit.gif" alt="Submit">
+                    </ul>
 
             </div>
             <div class="col-md-9">
@@ -206,6 +234,7 @@ canvas.add(
         fill:"transparent",
         hasControls: false,
         evented:false,
+        selectable:false,
 	strokeWidth: 2,
     stroke: "#880E4F"
 })
@@ -270,7 +299,18 @@ canvas.on('mouse:down', function(options) {
 
         rect = canvas.getActiveObject();
         }
-    }*/
+    }
+
+    let asdasd = canvas.getObjects();
+    console.log(canvas.getObjects());
+    
+    canvas._objects.forEach(element => {
+            canvas.remove(element);
+            canvas.renderAll();     
+    });
+    */
+
+
 });
 
 canvas.on('object:moving', function (e) {
@@ -290,6 +330,22 @@ canvas.on('object:moving', function (e) {
             obj.top = Math.min(obj.top, obj.canvas.height-obj.getBoundingRect().height+obj.top-obj.getBoundingRect().top);
             obj.left = Math.min(obj.left, obj.canvas.width-obj.getBoundingRect().width+obj.left-obj.getBoundingRect().left);
         }
+
+        // bütün objeleri göstermek için deneme
+
+        let obje;
+        if(obje != canvas.getObjects() ){
+        obje = canvas.getObjects();
+        canvas.getObjects().forEach(element => {
+        var div =   '<div>'+
+                        element
+                    +'</div>';
+        document.getElementById('item-list').innerHTML += div;
+        });
+        
+        }
+        
+
 });
 
 function _Rect_Create(){
@@ -530,16 +586,52 @@ function dtSetStyle(object, styleName, value) {
 }    
 
 
-function _Add_Photo(){
-    
-    canvas.add(
-    new fabric.Image.fromURL('http://fabricjs.com/assets/pug_small.jpg', function(myImg) {
-    //i create an extra var for to change some image properties
-    var img1 = myImg.set({ left: 0, top: 0 ,width:150,height:150});
-    canvas.add(img1); 
-    })
-);
+document.getElementById('ImageData').onchange = function handleImage(e) {
+    var reader = new FileReader();
+    reader.onload = function(event) {
+    var imgObj = new Image();
+    imgObj.src = event.target.result;
+    imgObj.onload = function() {
+      var image = new fabric.Image(imgObj);
+      image.set({
+        type:"image",  
+        left: 10,
+        top: 10,
+      }).scale(0.2);
+      canvas.add(image);
+    };
+  };
+  reader.readAsDataURL(e.target.files[0]);
+};
+
+function _Delete_Background_Image()
+{
+    console.log(canvas.backgroundImage);
+    canvas.backgroundImage = null;
+    canvas.renderAll();
+    console.log(canvas.backgroundImage);
+
 }
+
+
+
+document.getElementById('ImageBackGroundData').addEventListener("change", function(e) {
+   var file = e.target.files[0];
+   var reader = new FileReader();
+   reader.onload = function(f) {
+      var data = f.target.result;
+      fabric.Image.fromURL(data, function(img) {
+         // add background image
+         canvas.setBackgroundImage(img, canvas.renderAll.bind(canvas), {
+            scaleX: canvas.width / img.width,
+            scaleY: canvas.height / img.height
+         });
+      });
+   };
+   reader.readAsDataURL(file);
+});
+
+
 
 
 
@@ -613,46 +705,95 @@ $("#Delete_item").click(
         });
         */
     });
+    
+    
+
     var copy_front_canvas ;
+    var copy_front_canvas_background_image ;
     var copy_back_canvas ;
+    var copy_back_canvas_background_image ;
+
+    var deneme = 2;
+
 
     function _Front_Face()
     {
-        copy_front_canvas = canvas._objects;
-        console.log(canvas);
+        if(deneme == 1){
 
-        canvas._objects.forEach(element => {
+
+        copy_back_canvas = canvas.getObjects();
+        copy_back_canvas_background_image = canvas.backgroundImage;
+        
+        if(copy_front_canvas_background_image != null){
+            canvas.backgroundImage = copy_front_canvas_background_image;
+        }        
+        else canvas.backgroundImage=null;
+
+
+        canvas.getObjects().forEach(element => {
             canvas.remove(element);
         });
-        console.log(canvas);
 
-        copy_back_canvas.ForEach(element => {
+        copy_front_canvas.forEach(element => {
             canvas.add(element);
         });
+        
+        canvas.renderAll();
 
-        copy_front_canvas = null;
 
-        console.log(canvas);
-        console.log(copy_front_canvas);
-        console.log(copy_back_canvas);
-
+        deneme=2;
+        }
     }
     function _Back_Face()
     {
-        copy_back_canvas = canvas._objects;
-        canvas._objects.forEach(element => {
+        if(deneme == 2){
+
+        copy_front_canvas = canvas.getObjects();
+        copy_front_canvas_background_image = canvas.backgroundImage;
+        
+        if(copy_back_canvas_background_image != null){
+            canvas.backgroundImage = copy_back_canvas_background_image;
+        }
+        else canvas.backgroundImage=null;
+
+        canvas.getObjects().forEach(element => {
             canvas.remove(element);
         });
-        copy_front_canvas.forEach(element => {
-        
-            canvas.add(o);
-        });
-        copy_back_canvas = null;
 
-        console.log(canvas);
-        console.log(copy_front_canvas);
-        console.log(copy_back_canvas);
+        if(copy_back_canvas != null){
+            copy_back_canvas.forEach(element => {
+            canvas.add(element);
+            console.log("1111");
+        });
+        }
+        else
+        {
+            canvas.add(
+            new fabric.Rect({
+            transparentCorners: false,
+            cornerColor: 'red',
+            type:"back-rect",
+            left:25,
+            top:25,
+            width:800,
+            height:500,
+            fill:"transparent",
+            hasControls: false,
+            evented:false,
+	        strokeWidth: 2,
+            stroke: "#880E4F"
+        })
+        );
+        console.log("2222");
+        }
+        
+        canvas.renderAll();
+        deneme = 1;
+        }
     }
+
+    
+
 
 </script>
 
